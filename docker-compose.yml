@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  smart-heart-invoice-service-production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PATH_FILE=$PATH_FILE
+        - PATH_TEMPLATE=$PATH_TEMPLATE
+    # platform: linux/amd64
+    image: smart-heart-invoice-service-production
+    container_name: smart-heart-invoice-service-production
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE}
+      - SYNCHRONIZE=${SYNCHRONIZE}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+    ports:
+      - 4000:4000
+    volumes:
+      - ${PATH_FILE}:/files
+      - ${PATH_TEMPLATE}:/templates

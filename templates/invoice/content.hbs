@@ -1,0 +1,276 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <title>Invoice Template</title>
+  <style>
+    * {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #4d4c4c;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      border-bottom: 0.5px solid #c4c4c4;
+      margin: 12px 0px;
+    }
+
+    .text-xs {
+      font-size: 12px;
+      color: #202125;
+    }
+
+    .font-semiBold {
+      font-weight: 600;
+    }
+
+    /* .title { text-align: right; font-size: 50px;
+      font-weight: 600; margin-right: 50px; } */
+    .date-container {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .date-liner {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header-date {
+      width: 100%;
+      max-width: 350px;
+      background-color: #c1eeff;
+      border-radius: 10px 0 0 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 12px;
+      padding: 2px 0px;
+    }
+
+    .header-date>.invoice-number {
+      font-weight: 400;
+    }
+
+    .header-date>.invoice-date {
+      font-weight: 600;
+    }
+
+    .container {
+      position: relative;
+      padding: 0px 40px;
+    }
+
+    .curve-image {
+      position: absolute;
+      left: 0px;
+    }
+
+    .invoice-to-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      margin-top: 15px;
+      margin-left: 30px;
+      font-weight: 400;
+      font-size: 12px;
+    }
+
+    .multi-line {
+      position: absolute;
+      right: 40px;
+      margin-top: 30px;
+    }
+
+    /* .invoice-to-container > .invoiceTo { } */
+    .invoice-to-container>.invoice-to-name {
+      padding: 4px 0px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .invoice-to-container>.invoice-city {
+      font-size: 12px;
+    }
+
+    .invoice-to-container>.invoice-address {
+      font-size: 11px;
+    }
+
+    .invoice-to-container>.invoice-phone-number {
+      font-size: 11px;
+    }
+
+    .invoice-to-container>.inovoice-email {
+      font-size: 11px;
+    }
+
+    .tabel-container {
+      margin-top: 32px;
+    }
+
+    .grid-container-thread {
+      display: grid;
+      grid-template-columns: 40% 20% 20% 20%;
+      background: #2a5cda;
+      border-radius: 99px;
+    }
+
+    .grid-item-thread {
+      font-weight: 700;
+      padding: 4px 20px;
+      color: white;
+    }
+
+    .grid-container-tbody {
+      display: grid;
+      grid-template-columns: 40% 20% 20% 20%;
+      border-radius: 10px;
+    }
+
+    .grid-item-tbody {
+      font-weight: 400;
+      padding: 15px 20px;
+      font-size: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    .invoice-conclude-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+    }
+
+    .invoice-conclude-container>.term-condition-container {
+      margin-top: 20px;
+    }
+
+    .invoice-conclude-container>.term-condition-container>.term-title {
+      font-size: 12px;
+    }
+
+    .invoice-conclude-container>.term-condition-container>.term-notice {
+      color: #808181;
+      font-size: 8px;
+      font-weight: 400;
+    }
+
+    .invoice-conclude-container>.term-condition-container>.due-date {
+      font-size: 10px;
+      margin-top: 16px;
+    }
+
+    .invoice-conclude-container>.total-container {
+      display: flex;
+      max-width: 220px;
+      width: 100%;
+      flex-direction: column;
+      font-size: 12px;
+    }
+
+    .invoice-conclude-container>.total-container>.separate-item {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="invoice-date">
+    <div class="date-container">
+      <div class="date-liner">
+        <img
+          src="data:image/png;base64,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"
+          alt="divider" height="12px" />
+      </div>
+      <div class="header-date">
+        <div class="invoice-number">invoice: {{invoiceNumber}}</div>
+        <div class="invoice-date">Date {{createdAt}}</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <img class="curve-image"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAABUCAMAAADDNVXYAAAAP1BMVEUAAACw3fWy2/Kx2/Ky3PKx2/Ox2/Kv3/Gx2/Gx2/Gw2/Oy2/Kx2/Gy2/Gw2vCv2/Gw3PKz2/Ov2/Gv3/Sx2/ICPlwkAAAAFHRSTlMAIL/vn2DfEM+AQLCQcDCAUH9wMBspVhQAAAFDSURBVEjHpdXbbsQgDEXRY4OBXJuZ+v+/tQ9V5aol4yPNfl6KwJAE7qXptlwn0vyntpmkNFKTlEZVcppjdxr7rHKkNBpCU2+W0ujBU6889dFzGpamrjz1ylN/8NRXnhahqStP3XhaOk19+abrdexK7wzo9lrv+J1s6Woja9lqIxm3tOBvNT/e3NZ/tI9sY5EUegV4pqONNHt1ojUdV9Tm9pzQZU5tQj/Ts41KdgjRNqXbjO70tLC8SxtPx5sLqDxVfljJLcyv1kEv1VfQr4z8p0ZfbWnODqA6uyvzm076M9CyhUb7TFKjsnIrlf9sG6L+KC9kbEoOZX5ytY7iSY3/xRlNB2gqNP0ASwdY2oSmJ1j6RJRuKeIlEsnRYiBpO0FS7eBoeQIcVQFHdQUoqoabpk/MqR4dSGkZ+xVuXq11sUuQ9wWZTqS0prsoIQAAAABJRU5ErkJggg==" />
+    <section id="invoice-to">
+      <div class="invoice-to-container">
+        <img class="multi-line"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAgCAMAAADT9S0cAAAAPFBMVEUAAACv2/Ox2vGx3PKv2/Gz2/Ox2/Kx2vKx3POx2/Kv3++v3/+x3POv2u+v2vSx2/Ov2fKy3PKy2/Kx2/Nd4zkyAAAAFHRSTlMAIN/fgH/PoF/vEBBvMDCQUK+/QB2bSzcAAAEkSURBVEjHrZXbDoMwDEMH28plHaXl//91D02GmLW4KPgFxJzFokfmZmmZunqTcr1297HePPv6yys86oNVrcOAVnvHW3xhlkH5y6iDumPpLashjK2Da/8/9ny0jmxHhFcDsRus9g7NgrHXY2y0ZrVOm7VDs+wHk4oR2+DEUE7ig8OH2IVZUYxZHdy+zDIrysssWlGcWX74u9VSvILZFMwdyOzEmU1HZvUt8sIqrLB4t6E4swRvd2HxnkVOUH5meWF5mUUr6jSz2G0/VpSXWX9hIbPcer6wSjuzQawoP7O0sNqZjY3dhvIyi1bUdczywto4s43dhnIxi99jQ5hFQVxamGWF5WUWrShvzyInqDPM8m6zNJZ6nUuUB0F5ksFOY8dsWC19AMfQE+IXXM8tAAAAAElFTkSuQmCC" />
+        <div class="invoice-tp">Invoice to:</div>
+        <div class="invoice-to-name">{{name}}</div>
+        <div class="invoice-city">{{organization}}</div>
+        <div class="invoice-address">{{address}}</div>
+        <div class="invoice-phone-number">{{phoneNumber}}</div>
+        <div class="inovoice-email">{{email}}</div>
+      </div>
+    </section>
+
+    <section id="invoice-table">
+      <div id="table-container" class="tabel-container">
+        <!-- Thread -->
+        <div class="grid-container-thread">
+          <div class="grid-item-thread">Item Description</div>
+          <div class="grid-item-thread centered">Qty</div>
+          <div class="grid-item-thread centered">Rate</div>
+          <div class="grid-item-thread centered">Amount</div>
+        </div>
+        <!-- Tbody -->
+        {{#each invoiceItems}}
+        <div class='grid-container-tbody'>
+          <div class='grid-item-tbody'>{{description}}</div>
+          <div class='grid-item-tbody centered text-xs'>{{quantity}}</div>
+          <div class='grid-item-tbody centered text-xs'>{{price}} {{../tokenSymbol}}</div>
+          <div class='grid-item-tbody centered text-xs'>{{amount}} {{../tokenSymbol}}</div>
+        </div>
+        {{/each}}
+      </div>
+    </section>
+
+    <section id="invoice-conclude">
+      <div class="invoice-conclude-container">
+        <div class="term-condition-container">
+          <div class="term-title font-semiBold">Terms & Conditions</div>
+          <div class="term-notice">
+            <div>Please pay within 15 days of</div>
+            <div>receiving this invoice.</div>
+          </div>
+          <div class="due-date">Due {{dueDate}}</div>
+        </div>
+
+        <div class="total-container">
+          <div class="separate-item">
+            <span>Sub Total:</span>
+            <span> {{total}} {{tokenSymbol}}</span>
+          </div>
+          <div class="divider"></div>
+          <div class="separate-item font-semibold">
+            <span>Total:</span>
+            <span> {{total}} {{tokenSymbol}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+</body>
+
+</html>
